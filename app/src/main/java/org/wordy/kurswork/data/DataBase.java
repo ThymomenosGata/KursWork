@@ -5,13 +5,23 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import org.wordy.kurswork.data.dao.ProfessorDao;
+import org.wordy.kurswork.data.dao.UsersDao;
+import org.wordy.kurswork.data.tables.User;
+
 @Database(
-        entities = {},
+        entities = {
+                User.class
+        },
         version = 1,
         exportSchema = false)
 public abstract class DataBase extends RoomDatabase {
 
     private static DataBase INSTANCE;
+
+    public abstract UsersDao usersDao();
+
+    public abstract ProfessorDao professorDao();
 
     public static DataBase getINSTACE(Context context) {
         if (INSTANCE == null) {
