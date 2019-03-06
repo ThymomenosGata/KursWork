@@ -15,4 +15,15 @@
     <string name="professors">Professors</string>
     <string name="group">Group</string>
     <string name="news">News</string>
+    <string name="isblocked">isblocked</string>
+    <string name="date">date</string>
+    <string name="name">name</string>
+    <string name="count">count</string>
+    <string name="faculty">faculty</string>
+    <string name="title">title</string>
+    <string name="small_description">small_description</string>
+    <string name="full_description">full_description</string>
+    <string name="surname">surname</string>
+    <string name="middlename">middlename</string>
+    <string name="position">position</string>
 </resources>
