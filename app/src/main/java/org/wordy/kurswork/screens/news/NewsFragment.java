@@ -11,11 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import org.wordy.kurswork.R;
-import org.wordy.kurswork.data.tables.Group;
 import org.wordy.kurswork.data.tables.News;
-import org.wordy.kurswork.screens.group.GroupAdapter;
-import org.wordy.kurswork.screens.group.GroupModel;
-import org.wordy.kurswork.screens.group.GroupPresenter;
 
 import java.util.List;
 

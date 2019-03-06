@@ -1,6 +1,7 @@
 package org.wordy.kurswork.screens.professor;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.connect.GetInfo;
@@ -22,6 +23,11 @@ public class ProfessorModel implements ProfessorContract.Model {
     @Override
     public List<Professor> getmCurrentProfessors() {
         return mCurrentProfessors;
+    }
+
+    @Override
+    public LiveData<List<Professor>> getData() {
+        return dataBase.professorDao().getAll();
     }
 
     @Override
