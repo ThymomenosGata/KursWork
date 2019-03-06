@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        //ft.replace(R.id.contentMain, fragment);
+        ft.replace(R.id.container, fragment);
         ft.commit();
     }
 
