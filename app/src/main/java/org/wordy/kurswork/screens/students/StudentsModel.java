@@ -1,6 +1,7 @@
 package org.wordy.kurswork.screens.students;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.connect.GetInfo;
@@ -22,6 +23,11 @@ public class StudentsModel implements StudentsContract.Model {
     @Override
     public List<Students> getmCurrentStudents() {
         return mCurrentStudents;
+    }
+
+    @Override
+    public LiveData<List<Students>> getData() {
+        return dataBase.studentsDao().getAll();
     }
 
     @Override
