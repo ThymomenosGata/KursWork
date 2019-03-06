@@ -1,31 +1,34 @@
 package org.wordy.kurswork.data.tables;
 
+
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(
-        tableName = "professor"
+        tableName = "students"
 )
-public class Professor {
+public class Students {
     @PrimaryKey
     int id;
     String surname;
     String name;
     String middlename;
     String position;
-    int experience;
-    int userID;
+    int groupID;
+    int avg_score;
     String date_last_modify;
+    int userID;
 
-    public Professor(int id, String surname, String name, String middlename, String position, int experience, int userID, String date_last_modify) {
+    public Students(int id, String surname, String name, String middlename, String position, int groupID, int avg_score, String date_last_modify, int userID) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.middlename = middlename;
         this.position = position;
-        this.experience = experience;
-        this.userID = userID;
+        this.groupID = groupID;
+        this.avg_score = avg_score;
         this.date_last_modify = date_last_modify;
+        this.userID = userID;
     }
 
     public int getId() {
@@ -68,20 +71,20 @@ public class Professor {
         this.position = position;
     }
 
-    public int getExperience() {
-        return experience;
+    public int getGroupID() {
+        return groupID;
     }
 
-    public void setExperience(int experience) {
-        this.experience = experience;
+    public void setGroupID(int groupID) {
+        this.groupID = groupID;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getAvg_score() {
+        return avg_score;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setAvg_score(int avg_score) {
+        this.avg_score = avg_score;
     }
 
     public String getDate_last_modify() {
@@ -92,6 +95,11 @@ public class Professor {
         this.date_last_modify = date_last_modify;
     }
 
-    //TODO: implement methods toJson and fromJson
+    public int getUserID() {
+        return userID;
+    }
 
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 }
