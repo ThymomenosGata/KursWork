@@ -34,7 +34,7 @@ public class GroupFragment extends Fragment implements GroupContract.View {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_group, container, false);
 
-        listView = view.findViewById(R.id.students_list);
+        listView = view.findViewById(R.id.group_list);
         model = new GroupModel(getActivity().getApplication());
         presenter = new GroupPresenter(model, this);
 

@@ -1,6 +1,7 @@
 package org.wordy.kurswork.screens.news;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.connect.GetInfo;
@@ -22,6 +23,11 @@ public class NewsModel implements NewsContract.Model {
     @Override
     public List<News> getmCurrentNews() {
         return mCurrentNews;
+    }
+
+    @Override
+    public LiveData<List<News>> getData() {
+        return dataBase.newsDao().getAll();
     }
 
     @Override
