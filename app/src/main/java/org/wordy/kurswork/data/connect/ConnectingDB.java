@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class ConnectingDB {
 
     private static final String url = "jdbc:mysql://mysql.gdz-geo.myjino.ru/gdz-geo_kurs";
-    private static final String user = "046120438_kurs";
-    private static final String password = "046120438_kurs";
+    private static final String user = null;
+    private static final String password = null;
 
     private Connection mCon;
 
