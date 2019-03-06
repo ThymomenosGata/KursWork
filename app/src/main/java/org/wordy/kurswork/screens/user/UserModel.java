@@ -1,6 +1,7 @@
 package org.wordy.kurswork.screens.user;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,6 +60,11 @@ public class UserModel implements UserContract.Model {
             dataBase.usersDao().insert(user);
         }
         return true;
+    }
+
+    @Override
+    public LiveData<List<User>> getData() {
+        return dataBase.usersDao().getAll();
     }
 
 }
