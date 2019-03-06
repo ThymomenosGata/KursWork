@@ -1,6 +1,7 @@
 package org.wordy.kurswork.screens.group;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.connect.GetInfo;
@@ -25,7 +26,12 @@ public class GroupModel implements GroupContract.Model {
     }
 
     @Override
-    public void setmCurrentUsers(List<Group> mCurrentGroup) {
+    public LiveData<List<Group>> getData() {
+        return dataBase.groupsDao().getAll();
+    }
+
+    @Override
+    public void setmCurrentGroup(List<Group> mCurrentGroup) {
         GroupModel.mCurrentGroup = mCurrentGroup;
     }
 

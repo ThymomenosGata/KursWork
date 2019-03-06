@@ -1,6 +1,8 @@
 package org.wordy.kurswork.screens.students;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
 
 import org.wordy.kurswork.data.tables.Students;
 
@@ -16,18 +18,33 @@ public class StudentsPresenter implements StudentsContract.Presenter {
         this.view = view;
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void getStudentsFromDb() {
+        new AsyncTask<Void, Void, Boolean>() {
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.getStudentsFromDB();
+            }
 
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+                if (aBoolean) {
+                    view.getData();
+                }
+            }
+        }.execute();
     }
 
     @Override
-    public void setStudents(List<Students> users) {
-
+    public void setStudents(List<Students> students) {
+        model.setmCurrentStudents(students);
+        view.setDataList(model.getmCurrentStudents());
     }
 
     @Override
     public LiveData<List<Students>> getStudents() {
-        return null;
+        return model.getData();
     }
 }
