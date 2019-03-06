@@ -16,6 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import org.wordy.kurswork.R;
+import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.screens.group.GroupFragment;
+import org.wordy.kurswork.screens.news.NewsFragment;
+import org.wordy.kurswork.screens.professor.ProfessorFragment;
+import org.wordy.kurswork.screens.students.StudentsFragment;
+import org.wordy.kurswork.screens.user.UserFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,6 +41,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        loadFragment(UserFragment.newInstance());
     }
 
     @Override
@@ -54,15 +62,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.users) {
-
+            loadFragment(UserFragment.newInstance());
         } else if (id == R.id.students) {
-
+            loadFragment(StudentsFragment.newInstance());
         } else if (id == R.id.professors) {
-
+            loadFragment(ProfessorFragment.newInstance());
         } else if (id == R.id.group) {
-
+            loadFragment(GroupFragment.newInstance());
         } else if (id == R.id.news) {
-
+            loadFragment(NewsFragment.newInstance());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

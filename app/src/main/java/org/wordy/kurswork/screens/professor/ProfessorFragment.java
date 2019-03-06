@@ -1,4 +1,4 @@
-package org.wordy.kurswork.screens.user;
+package org.wordy.kurswork.screens.professor;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,19 +10,19 @@ import android.view.ViewGroup;
 
 import org.wordy.kurswork.R;
 
-public class UserFragment extends Fragment {
+public class ProfessorFragment extends Fragment {
 
-    public UserFragment() {
+    public ProfessorFragment() {
     }
 
-    public static UserFragment newInstance() {
-        return new UserFragment();
+    public static ProfessorFragment newInstance() {
+        return new ProfessorFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_professor, container, false);
         return view;
     }
 
