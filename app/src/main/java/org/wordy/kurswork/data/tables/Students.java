@@ -13,18 +13,16 @@ public class Students {
     String surname;
     String name;
     String middlename;
-    String position;
     int groupID;
     int avg_score;
     String date_last_modify;
     int userID;
 
-    public Students(int id, String surname, String name, String middlename, String position, int groupID, int avg_score, String date_last_modify, int userID) {
+    public Students(int id, String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.middlename = middlename;
-        this.position = position;
         this.groupID = groupID;
         this.avg_score = avg_score;
         this.date_last_modify = date_last_modify;
@@ -61,14 +59,6 @@ public class Students {
 
     public void setMiddlename(String middlename) {
         this.middlename = middlename;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 
     public int getGroupID() {

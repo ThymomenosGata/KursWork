@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class getInfo {
+public class GetInfo {
 
     private String mQuery;
     private Statement stmt;
@@ -89,7 +89,6 @@ public class getInfo {
                                 rs.getString(2),
                                 rs.getString(3),
                                 rs.getString(4),
-                                rs.getString(5),
                                 rs.getInt(6),
                                 rs.getInt(7),
                                 rs.getString(8),
