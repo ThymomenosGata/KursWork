@@ -14,7 +14,7 @@ import org.wordy.kurswork.data.tables.User;
 import java.io.IOException;
 import java.util.List;
 
-public class UserModel {
+public class UserModel implements UserContract.Model {
 
     private PortalRest mPortal;
     private DataBase dataBase;
@@ -27,14 +27,17 @@ public class UserModel {
         this.getInfo = new GetInfo();
     }
 
+    @Override
     public List<User> getmCurrentUsers() {
         return mCurrentUsers;
     }
 
+    @Override
     public void setmCurrentUsers(List<User> mCurrentUsers) {
         UserModel.mCurrentUsers = mCurrentUsers;
     }
 
+    @Override
     public Boolean getUsers() {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.get("user.php?id=all").body().string());
@@ -49,6 +52,7 @@ public class UserModel {
         }
     }
 
+    @Override
     public Boolean getUsersFromDB() {
         List<User> users = getInfo.selectUser();
         for (User user : users) {
