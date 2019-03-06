@@ -40,7 +40,7 @@ public abstract class DataBase extends RoomDatabase {
 
     public abstract NewsDao newsDao();
 
-    public static DataBase getINSTACE(Context context) {
+    public static DataBase getDataBase(Context context) {
         if (INSTANCE == null) {
             synchronized (DataBase.class) {
                 if (INSTANCE == null) {

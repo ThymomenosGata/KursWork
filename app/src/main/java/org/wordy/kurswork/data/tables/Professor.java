@@ -3,6 +3,9 @@ package org.wordy.kurswork.data.tables;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 @Entity(
         tableName = "professor"
 )
@@ -16,6 +19,9 @@ public class Professor {
     int experience;
     int userID;
     String date_last_modify;
+
+    public Professor() {
+    }
 
     public Professor(int id, String surname, String name, String middlename, String position, int experience, int userID, String date_last_modify) {
         this.id = id;
@@ -92,6 +98,17 @@ public class Professor {
         this.date_last_modify = date_last_modify;
     }
 
-    //TODO: implement methods toJson and fromJson
+    public static Professor fromJson(JSONObject json) throws JSONException {
+        Professor professor = new Professor();
+        professor.id = json.getInt("id");
+        professor.surname = json.getString("surname");
+        professor.name = json.getString("name");
+        professor.middlename = json.getString("middlename");
+        professor.position = json.getString("position");
+        professor.experience = json.getInt("experience");
+        professor.userID = json.getInt("user");
+        professor.date_last_modify = json.getString("date_last_modify");
+        return professor;
+    }
 
 }

@@ -4,6 +4,9 @@ package org.wordy.kurswork.data.tables;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 @Entity(
         tableName = "students"
 )
@@ -17,6 +20,9 @@ public class Students {
     int avg_score;
     String date_last_modify;
     int userID;
+
+    public Students() {
+    }
 
     public Students(int id, String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
         this.id = id;
@@ -91,5 +97,18 @@ public class Students {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    public static Students fromJson(JSONObject json) throws JSONException {
+        Students students = new Students();
+        students.id = json.getInt("id");
+        students.surname = json.getString("surname");
+        students.name = json.getString("name");
+        students.middlename = json.getString("middlename");
+        students.groupID = json.getInt("group");
+        students.avg_score = json.getInt("avg_score");
+        students.userID = json.getInt("user");
+        students.date_last_modify = json.getString("date_last_modify");
+        return students;
     }
 }
