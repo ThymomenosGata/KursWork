@@ -12,12 +12,14 @@ public class User {
     String login;
     String password;
     int is_blocked;
+    String datetime;
 
-    public User(int id, String login, String password, int is_blocked) {
+    public User(int id, String login, String password, int is_blocked, String datetime) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.is_blocked = is_blocked;
+        this.datetime = datetime;
     }
 
     public int getId() {
@@ -50,6 +52,14 @@ public class User {
 
     public void setIs_blocked(int is_blocked) {
         this.is_blocked = is_blocked;
+    }
+
+    public String getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
     //TODO: implement methods toJson and fromJson

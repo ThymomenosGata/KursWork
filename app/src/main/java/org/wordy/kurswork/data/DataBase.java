@@ -7,11 +7,13 @@ import android.content.Context;
 
 import org.wordy.kurswork.data.dao.ProfessorDao;
 import org.wordy.kurswork.data.dao.UsersDao;
+import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.User;
 
 @Database(
         entities = {
-                User.class
+                User.class,
+                Professor.class
         },
         version = 1,
         exportSchema = false)
