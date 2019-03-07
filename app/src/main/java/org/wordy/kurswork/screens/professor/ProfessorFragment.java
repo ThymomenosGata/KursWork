@@ -12,8 +12,6 @@ import android.widget.ListView;
 
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.tables.Professor;
-import org.wordy.kurswork.screens.news.NewsModel;
-import org.wordy.kurswork.screens.news.NewsPresenter;
 
 import java.util.List;
 

@@ -26,4 +26,5 @@
     <string name="surname">surname</string>
     <string name="middlename">middlename</string>
     <string name="position">position</string>
+    <string name="warning">Внимание</string>
 </resources>

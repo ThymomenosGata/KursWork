@@ -155,4 +155,26 @@ public class GetInfo {
         return news;
     }
 
+    public Boolean selectUserForName(String login, String password) {
+        mQuery = "select password from user where login = " + login;
+        mConnect = new ConnectingDB();
+        mCon = mConnect.getmCon();
+        try {
+            stmt = mCon.createStatement();
+            rs = stmt.executeQuery(mQuery);
+            while (rs.next()) {
+                rs.getString(1);
+                if (password.equals(rs.getString(1))) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
