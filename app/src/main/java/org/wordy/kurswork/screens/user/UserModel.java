@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.PortalRest;
-import org.wordy.kurswork.data.connect.GetInfo;
+import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.tables.Group;
 import org.wordy.kurswork.data.tables.User;
 
@@ -55,7 +55,7 @@ public class UserModel implements UserContract.Model {
 
     @Override
     public Boolean getUsersFromDB() {
-        List<User> users = getInfo.selectUser();
+        List<User> users = getInfo.selectUsers();
         for (User user : users) {
             dataBase.usersDao().insert(user);
         }

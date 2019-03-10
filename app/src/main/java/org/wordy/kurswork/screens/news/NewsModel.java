@@ -4,7 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
-import org.wordy.kurswork.data.connect.GetInfo;
+import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.tables.News;
 
 import java.util.List;

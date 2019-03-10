@@ -4,7 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
-import org.wordy.kurswork.data.connect.GetInfo;
+import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.tables.Students;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class StudentsModel implements StudentsContract.Model {
 
     @Override
     public Boolean getStudentsFromDB() {
-        List<Students> students = getInfo.selectStudent();
+        List<Students> students = getInfo.selectStudents();
         for (Students student : students) {
             dataBase.studentsDao().insert(student);
         }

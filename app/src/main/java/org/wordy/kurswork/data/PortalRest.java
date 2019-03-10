@@ -9,7 +9,7 @@ import okhttp3.Response;
 
 public class PortalRest {
 
-    private final static String BASE_URL = "http://p481140.ihc.xyz/kurs_api/";
+    private final static String BASE_URL = "http://gdz-geo.myjino.ru/query.php?sql=";
     private static OkHttpClient client = new OkHttpClient();
 
     public PortalRest() {
