@@ -17,8 +17,8 @@ public class PostInfo {
 
     public boolean insertGroup(Group group) {
         try {
-            mPortal.get("insert into group(id, name, count, faculty, date_last_modify) " +
-                    "values(nextVal('id')," + group.getName() + "," + group.getCount()+ "," + group.getFaculty() + ","
+            mPortal.post("insert into group(id, name, count, faculty, date_last_modify) " +
+                    "values(nextVal('id')," + group.getName() + "," + group.getCount() + "," + group.getFaculty() + ","
                     + group.getDate_last_modify() + ")").body().string();
             return true;
         } catch (IOException e) {
@@ -29,7 +29,7 @@ public class PostInfo {
 
     public boolean insertNews() {
         try {
-            mPortal.get("insert into group() values()").body().string();
+            mPortal.post("insert into group() values()").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class PostInfo {
 
     public boolean insertProfessor() {
         try {
-            mPortal.get("insert into group() values()").body().string();
+            mPortal.post("insert into group() values()").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class PostInfo {
 
     public boolean insertStudents() {
         try {
-            mPortal.get("insert into group() values()").body().string();
+            mPortal.post("insert into group() values()").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class PostInfo {
 
     public boolean insertUsers() {
         try {
-            mPortal.get("insert into group() values()").body().string();
+            mPortal.post("insert into group() values()").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

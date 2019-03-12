@@ -24,8 +24,10 @@ public class GetInfo {
 
     public boolean getSuccesAuth(String login, String password) {
         try {
-            return mPortal.get("select password from user where login = " + login).body().string().equals(password);
-        } catch (IOException e) {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select password from user where login = \'" + login + "\'\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return jsonObject.getString("password").equals(String.valueOf(password));
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
             return false;
         }
@@ -34,7 +36,7 @@ public class GetInfo {
     public List<Group> selectGroup() {
         List<Group> groups = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("select * from group").body().string());
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from `group`\"}").body().string());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 groups.add(Group.fromJson(json));
@@ -49,7 +51,7 @@ public class GetInfo {
     public List<News> selectNews() {
         List<News> news = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("select * from news").body().string());
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from news\"}").body().string());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 news.add(News.fromJson(json));
@@ -64,7 +66,7 @@ public class GetInfo {
     public List<Professor> selectProfessor() {
         List<Professor> professors = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("select * from professor").body().string());
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from professor\"}").body().string());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 professors.add(Professor.fromJson(json));
@@ -79,7 +81,7 @@ public class GetInfo {
     public List<Students> selectStudents() {
         List<Students> students = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("select * from students").body().string());
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from students\"}").body().string());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 students.add(Students.fromJson(json));
@@ -94,7 +96,7 @@ public class GetInfo {
     public List<User> selectUsers() {
         List<User> users = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("select * from user").body().string());
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from user\"}").body().string());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 users.add(User.fromJson(json));

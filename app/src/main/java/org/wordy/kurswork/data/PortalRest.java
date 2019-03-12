@@ -2,14 +2,16 @@ package org.wordy.kurswork.data;
 
 import java.io.IOException;
 
+import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class PortalRest {
 
-    private final static String BASE_URL = "http://gdz-geo.myjino.ru/query.php?sql=";
+    private final static String BASE_URL = "http://gdz-geo.myjino.ru/query.php";
     private static OkHttpClient client = new OkHttpClient();
 
     public PortalRest() {
@@ -36,8 +38,9 @@ public class PortalRest {
         return response;
     }
 
-    public Response get(String... segments) throws IOException {
-        return makeRequest(getRequestBuilder(segments).get().build());
+    public Response post(String json) throws IOException {
+        RequestBody body = new FormBody.Builder().add("sql", json).build();
+        return makeRequest(getRequestBuilder().post(body).build());
     }
 
 }

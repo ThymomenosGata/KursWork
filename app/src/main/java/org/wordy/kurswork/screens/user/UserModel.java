@@ -3,16 +3,11 @@ package org.wordy.kurswork.screens.user;
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.PortalRest;
 import org.wordy.kurswork.data.rests.GetInfo;
-import org.wordy.kurswork.data.tables.Group;
 import org.wordy.kurswork.data.tables.User;
 
-import java.io.IOException;
 import java.util.List;
 
 public class UserModel implements UserContract.Model {
@@ -40,17 +35,18 @@ public class UserModel implements UserContract.Model {
 
     @Override
     public Boolean getUsers() {
-        try {
-            JSONArray jsonArray = new JSONArray(mPortal.get("user.php?id=all").body().string());
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject json = jsonArray.getJSONObject(i);
-                dataBase.groupsDao().insert(Group.fromJson(json));
-            }
-            return true;
-        } catch (JSONException | IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+//        try {
+//            JSONArray jsonArray = new JSONArray(mPortal.get("user.php?id=all").body().string());
+//            for (int i = 0; i < jsonArray.length(); i++) {
+//                JSONObject json = jsonArray.getJSONObject(i);
+//                dataBase.groupsDao().insert(Group.fromJson(json));
+//            }
+//            return true;
+//        } catch (JSONException | IOException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+        return false;
     }
 
     @Override

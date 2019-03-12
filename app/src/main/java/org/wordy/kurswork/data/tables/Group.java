@@ -2,6 +2,7 @@ package org.wordy.kurswork.data.tables;
 
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import org.json.JSONException;
@@ -18,6 +19,7 @@ public class Group {
     String faculty;
     String date_last_modify;
 
+    @Ignore
     public Group() {
     }
 

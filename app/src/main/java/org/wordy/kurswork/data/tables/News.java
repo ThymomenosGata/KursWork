@@ -1,6 +1,7 @@
 package org.wordy.kurswork.data.tables;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import org.json.JSONException;
@@ -20,6 +21,7 @@ public class News {
     int is_published;
     int author;
 
+    @Ignore
     public News() {
     }
 
@@ -104,7 +106,7 @@ public class News {
         news.title = json.getString("title");
         news.small_sedcription = json.getString("small_sedcription");
         news.full_description = json.getString("full_description");
-        news.date_publish = json.getString("date_publish");
+        news.date_publish = json.getString("date_published");
         news.date_last_modify = json.getString("date_last_modify");
         news.is_published = json.getInt("is_published");
         news.author = json.getInt("author");
