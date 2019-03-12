@@ -3,7 +3,8 @@
     package="org.wordy.kurswork">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +22,15 @@
         <activity
             android:name=".screens.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <receiver android:name="NetworkChangeReceiver" >
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name=".NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".screens.PostActivity"></activity>
     </application>
 
 </manifest>
