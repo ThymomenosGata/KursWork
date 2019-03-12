@@ -20,8 +20,8 @@ public class PostInfo {
     public boolean insertGroup(Group group) {
         try {
             mPortal.post("{\"query\" : \"insert into `group`(name, count, faculty, date_last_modify) " +
-                    "values(" + group.getName() + "," + group.getCount() + "," + group.getFaculty() + ","
-                    + group.getDate_last_modify() + ")\"}").body().string();
+                    "values(\'" + group.getName() + "\'," + group.getCount() + ",\'" + group.getFaculty() + "\',\'"
+                    + group.getDate_last_modify() + "\')\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,9 +68,9 @@ public class PostInfo {
 
     public boolean insertUsers(User user) {
         try {
-            mPortal.post("{\"query\" : \"insert into group(login, password, is_blocked, date_last_modify) values("
-                    + user.getLogin() + "," + user.getPassword() + "," + user.getIs_blocked() + ","
-                    + user.getDate_last_modify() + ")\"}").body().string();
+            mPortal.post("{\"query\" : \"insert into user(login, password, is_blocked, date_last_modify) values(\'"
+                    + user.getLogin() + "\',\'" + user.getPassword() + "\'," + user.getIs_blocked() + ",\'"
+                    + user.getDate_last_modify() + "\')\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

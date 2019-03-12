@@ -22,12 +22,11 @@ public class Students {
     String date_last_modify;
     int userID;
 
-    @Ignore
     public Students() {
     }
 
-    public Students(int id, String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
-        this.id = id;
+    @Ignore
+    public Students(String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
         this.surname = surname;
         this.name = name;
         this.middlename = middlename;

@@ -33,6 +33,28 @@ public class GetInfo {
         }
     }
 
+    public User getUserByLogin(String login) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from user where login = \'" + login + "\'\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return User.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Group getGroupByName(String name) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from `group` where name = \'" + name + "\'\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return Group.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Group> selectGroup() {
         List<Group> groups = new ArrayList<>();
         try {

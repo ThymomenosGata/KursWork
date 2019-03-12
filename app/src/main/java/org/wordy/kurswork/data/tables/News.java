@@ -21,12 +21,11 @@ public class News {
     int is_published;
     int author;
 
-    @Ignore
     public News() {
     }
 
-    public News(int id, String title, String small_sedcription, String full_description, String date_publish, String date_last_modify, int is_published, int author) {
-        this.id = id;
+    @Ignore
+    public News(String title, String small_sedcription, String full_description, String date_publish, String date_last_modify, int is_published, int author) {
         this.title = title;
         this.small_sedcription = small_sedcription;
         this.full_description = full_description;

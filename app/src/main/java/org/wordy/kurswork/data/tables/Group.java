@@ -19,12 +19,11 @@ public class Group {
     String faculty;
     String date_last_modify;
 
-    @Ignore
     public Group() {
     }
 
-    public Group(int id, String name, int count, String faculty, String date_last_modify) {
-        this.id = id;
+    @Ignore
+    public Group(String name, int count, String faculty, String date_last_modify) {
         this.name = name;
         this.count = count;
         this.faculty = faculty;

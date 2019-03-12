@@ -18,12 +18,18 @@ public class User {
     int is_blocked;
     String date_last_modify;
 
-    @Ignore
     public User() {
     }
 
     public User(int id, String login, String password, int is_blocked, String date_last_modify) {
         this.id = id;
+        this.login = login;
+        this.password = password;
+        this.is_blocked = is_blocked;
+        this.date_last_modify = date_last_modify;
+    }
+
+    public User(String login, String password, int is_blocked, String date_last_modify) {
         this.login = login;
         this.password = password;
         this.is_blocked = is_blocked;

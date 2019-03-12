@@ -1,9 +1,11 @@
 package org.wordy.kurswork.screens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +15,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.screens.group.GroupFragment;
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_ID, 1);
         editor.apply();
+
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PostActivity.class);
+            startActivity(intent);
+        });
 
 
         loadFragment(UserFragment.newInstance());

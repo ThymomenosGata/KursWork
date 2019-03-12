@@ -21,12 +21,11 @@ public class Professor {
     int userID;
     String date_last_modify;
 
-    @Ignore
     public Professor() {
     }
 
+    @Ignore
     public Professor(int id, String surname, String name, String middlename, String position, int experience, int userID, String date_last_modify) {
-        this.id = id;
         this.surname = surname;
         this.name = name;
         this.middlename = middlename;
