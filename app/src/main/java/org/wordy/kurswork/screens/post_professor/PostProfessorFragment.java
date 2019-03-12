@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wordy.kurswork.R;
+
 public class PostProfessorFragment extends Fragment {
 
     public PostProfessorFragment() {
@@ -20,6 +22,7 @@ public class PostProfessorFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragmetn_post_professors, container, false);
+        return view;
     }
 }

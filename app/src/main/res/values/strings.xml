@@ -27,4 +27,8 @@
     <string name="middlename">middlename</string>
     <string name="position">position</string>
     <string name="warning">Внимание</string>
+    <string name="professor">Professor</string>
+    <string name="experience">experience</string>
+    <string name="avg_score">avg score</string>
+    <string name="send">Отправить</string>
 </resources>
