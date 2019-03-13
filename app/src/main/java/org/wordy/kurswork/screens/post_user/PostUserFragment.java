@@ -118,7 +118,7 @@ public class PostUserFragment extends Fragment {
             protected Boolean doInBackground(User... users) {
                 boolean flag = postInfo.insertUsers(users[0]);
                 users[0] = getInfo.getUserByLogin(user.getLogin());
-                dataBase.usersDao().insert(user);
+                dataBase.usersDao().insert(users[0]);
                 return flag;
             }
 

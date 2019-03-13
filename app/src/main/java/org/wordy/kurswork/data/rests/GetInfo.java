@@ -44,6 +44,17 @@ public class GetInfo {
         }
     }
 
+    public Professor getProfessorByName(String name) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from professor where name = \'" + name + "\'\"}").body().string());
+            JSONObject json = jsonArray.getJSONObject(0);
+            return Professor.fromJson(json);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public User delUserById(int id) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from user where id = " + id + "\"}").body().string());
@@ -58,6 +69,17 @@ public class GetInfo {
     public Group delGroupById(int id) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from `group` where id = " + id + "\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return Group.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Group delProfessorById(int id) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from professor where id = " + id + "\"}").body().string());
             JSONObject jsonObject = jsonArray.getJSONObject(0);
             return Group.fromJson(jsonObject);
         } catch (IOException | JSONException e) {
@@ -95,7 +117,7 @@ public class GetInfo {
             mPortal.post("{\"query\":\"update `group` set name = \'"
                     + group.getName() + "\', count = " + group.getCount() + ", faculty =\'" + group.getFaculty()
                     + "\', date_last_modify = \'" + group.getDate_last_modify()
-                    + "\' where id = " + group.getId() +"\"}").body().string();
+                    + "\' where id = " + group.getId() + "\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -178,4 +200,16 @@ public class GetInfo {
         }
     }
 
+    public boolean updateProfessor(Professor professor) {
+        try {
+            mPortal.post("{\"query\" : \"update professor set surname = \'"+ professor.getSurname() + "\', name = \'"
+                    + professor.getName() + "\', middlename = \'" + professor.getMiddlename() + "\', position = \'"
+                    + professor.getPosition() + "\',experience = " + professor.getExperience() + ",user = " + professor.getUserID()
+                    + ", date_last_modify = \'" + professor.getDate_last_modify() + "\' where id = " + professor.getId() + "\"}").body().string();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

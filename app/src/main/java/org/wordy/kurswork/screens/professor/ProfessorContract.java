@@ -22,6 +22,8 @@ public interface ProfessorContract {
         List<Professor> getmCurrentProfessors();
 
         LiveData<List<Professor>> getData();
+
+        Boolean updateProfessor(Professor professor);
     }
 
     interface Presenter {

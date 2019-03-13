@@ -47,4 +47,21 @@ public class ProfessorPresenter implements ProfessorContract.Presenter {
     public LiveData<List<Professor>> getProfessors() {
         return model.getData();
     }
+
+    @SuppressLint("StaticFieldLeak")
+    public void update(Professor professor) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.updateProfessor(professor);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
+    }
 }

@@ -32,8 +32,8 @@ public class PostInfo {
     public boolean insertNews(News news) {
         try {
             mPortal.post("{\"query\" : \"insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)"
-                    + "values("+ news.getTitle() + "," + news.getSmall_sedcription() + "," + news.getFull_description() + "," + news.getDate_publish()
-                    + news.getDate_last_modify() + "," + news.getIs_published() + "," + news.getAuthor() +")\"}").body().string();
+                    + "values(\'"+ news.getTitle() + "\',\'" + news.getSmall_sedcription() + "\',\'" + news.getFull_description() + "\',\'" + news.getDate_publish()
+                    + news.getDate_last_modify() + "\',\'" + news.getIs_published() + "," + news.getAuthor() +")\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,10 +43,10 @@ public class PostInfo {
 
     public boolean insertProfessor(Professor professor) {
         try {
-            mPortal.post("{\"query\" : \"insert into professor(surname, name middlename, position, experience, user, date_last_modify)"
-                    + "values(" + professor.getSurname() + "," + professor.getName() + "," + professor.getMiddlename() + ","
-                    + professor.getPosition() + "," + professor.getExperience() + "," + professor.getUserID() + ","
-                    + professor.getDate_last_modify() + ")\"}").body().string();
+            mPortal.post("{\"query\" : \"insert into professor(surname, name, middlename, position, experience, user, date_last_modify)"
+                    + "values(\'" + professor.getSurname() + "\',\'" + professor.getName() + "\',\'" + professor.getMiddlename() + "\',\'"
+                    + professor.getPosition() + "\'," + professor.getExperience() + "," + professor.getUserID() + ",\'"
+                    + professor.getDate_last_modify() + "\')\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,9 +56,9 @@ public class PostInfo {
 
     public boolean insertStudents(Students students) {
         try {
-            mPortal.post("{\"query\" : \"insert into students(surname, name middlename, group, avg_score, date_last_modify, user) values("
-                    + students.getSurname() + "," + students.getName() + "," + students.getMiddlename() + "," + students.getGroupID()
-                    + "," + students.getAvg_score() + "," + students.getDate_last_modify() + students.getUserID() + ")\"}").body().string();
+            mPortal.post("{\"query\" : \"insert into students(surname, name middlename, group, avg_score, date_last_modify, user) values(\'"
+                    + students.getSurname() + "\',\'" + students.getName() + "\',\'" + students.getMiddlename() + "\'," + students.getGroupID()
+                    + "," + students.getAvg_score() + ",\'" + students.getDate_last_modify() + "\'," + students.getUserID() + ")\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

@@ -27,4 +27,7 @@ public interface ProfessorDao {
     @Query("Select * from professor")
     LiveData<List<Professor>> getAll();
 
+    @Query("Select * from professor where id = :id")
+    Professor getProfessorById(int id);
+
 }
