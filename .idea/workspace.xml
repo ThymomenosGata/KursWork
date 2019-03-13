@@ -15,8 +15,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="ada91532-9af4-4fcd-a159-0b9a02a96a97" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_autorenew_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/reload.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <list id="7ebe0539-63bf-410e-be22-8db70bae065d" name="New changelist" comment="" />
-    <list default="true" id="ada91532-9af4-4fcd-a159-0b9a02a96a97" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostInfo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state relative-caret-position="828">
+              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostNewsFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java">
+      <file leaf-file-name="GroupPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="141" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="598">
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="52" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,37 +78,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="274" selection-start-line="274" selection-end-line="274" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="reload.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/reload.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostProfessorFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="129" column="102" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="102" />
+            <state relative-caret-position="45">
+              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostStudentsFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="154" selection-start-line="154" selection-end-line="154" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#157#173#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,9 +100,9 @@
       <list>
         <option value="Interface" />
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
         <option value="layoutResourceFile_vertical" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -2373,7 +2368,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_news.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_users.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_groups.xml" />
@@ -2384,11 +2378,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/user/UserModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/user/UserPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/user/UserContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/PostActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/UsersDao.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/GroupsDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupPresenter.java" />
@@ -2397,14 +2388,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragmetn_post_professors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_spinner_users.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/professor/ProfessorContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/professor/ProfessorPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_user/PostUserFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/professor/ProfessorFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/SpinnerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/StudentsDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/SpinnerAdapterGroup.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/tables/Students.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/students/StudentsContract.java" />
@@ -2420,10 +2409,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/tables/News.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/SpinnerAdapterProfessors.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/UsersDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/StudentsDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/GroupsDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/reload.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2467,22 +2462,6 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="rests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2491,7 +2470,7 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="post_news" type="462c0819:PsiDirectoryNode" />
+              <item name="group" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
@@ -2504,23 +2483,13 @@
             <path>
               <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="post_user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
@@ -2803,6 +2772,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="12" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2814,12 +2784,12 @@
       <window_info anchor="right" id="Preview" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3260606" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32848486" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28363636" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28363636" />
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.32848486" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1795422" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1795422" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32630098" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -3078,48 +3048,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/GroupsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/PostActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="28" column="80" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -3163,13 +3095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-310">
           <caret line="107" column="39" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/UsersDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -3222,13 +3147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/StudentsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/SpinnerAdapterGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -3264,16 +3182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="39" column="9" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3448,30 +3356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="39" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="129" column="102" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -3494,7 +3378,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="289">
           <caret line="274" selection-start-line="274" selection-end-line="274" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3504,8 +3388,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="465">
           <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/UsersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="33" column="21" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/StudentsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/GroupsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/PostActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="28" column="80" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="37" column="30" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="37" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/reload.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding>
+            <element signature="e#157#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/group/GroupModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -33,4 +33,6 @@
     <string name="send">Отправить</string>
     <string name="del">Удалить</string>
     <string name="upd">Обновить</string>
+    <string name="reload">reload</string>
+    <string name="reload_info">информация обновлена</string>
 </resources>
