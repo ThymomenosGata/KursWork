@@ -24,6 +24,8 @@ public interface GroupContract {
         List<Group> getmCurrentGroup();
 
         LiveData<List<Group>> getData();
+
+        Boolean updateGroups(Group group);
     }
 
     interface Presenter {

@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import org.wordy.kurswork.data.tables.Group;
+import org.wordy.kurswork.data.tables.User;
 
 import java.util.List;
 
@@ -46,5 +47,22 @@ public class GroupPresenter implements GroupContract.Presenter {
     @Override
     public LiveData<List<Group>> getGroups() {
         return model.getData();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void update(Group group) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.updateGroups(group);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
     }
 }

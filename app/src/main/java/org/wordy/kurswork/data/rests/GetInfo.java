@@ -55,6 +55,17 @@ public class GetInfo {
         }
     }
 
+    public Group delGroupById(int id) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from `group` where id = " + id + "\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return Group.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Group getGroupByName(String name) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from `group` where name = \'" + name + "\'\"}").body().string());
@@ -83,7 +94,8 @@ public class GetInfo {
         try {
             mPortal.post("{\"query\":\"update `group` set name = \'"
                     + group.getName() + "\', count = " + group.getCount() + ", faculty =\'" + group.getFaculty()
-                    + "\', date_last_modify\'" + group.getDate_last_modify() + "\'\"}").body().string();
+                    + "\', date_last_modify = \'" + group.getDate_last_modify()
+                    + "\' where id = " + group.getId() +"\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

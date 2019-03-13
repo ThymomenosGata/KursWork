@@ -31,6 +31,16 @@ public class GroupModel implements GroupContract.Model {
     }
 
     @Override
+    public Boolean updateGroups(Group group) {
+        if (getInfo.updateGroup(group)) {
+            dataBase.groupsDao().insert(group);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void setmCurrentGroup(List<Group> mCurrentGroup) {
         GroupModel.mCurrentGroup = mCurrentGroup;
     }
