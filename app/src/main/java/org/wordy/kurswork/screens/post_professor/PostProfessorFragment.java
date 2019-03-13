@@ -110,7 +110,14 @@ public class PostProfessorFragment extends Fragment {
                     mMiddlename.setText(professorq.getMiddlename());
                     mPosition.setText(professorq.getPosition());
                     mExperience.setText(String.valueOf(professorq.getExperience()));
-                    mSpinner.setSelection(spinnerAdapter.getPosititon(professorq.getUserID()));
+                    professor.setId(professorq.getId());
+                    professor.setSurname(professorq.getSurname());
+                    professor.setName(professorq.getName());
+                    professor.setMiddlename(professorq.getMiddlename());
+                    professor.setPosition(professorq.getPosition());
+                    professor.setExperience(professorq.getExperience());
+                    professor.setUserID(professorq.getUserID());
+                    professor.setDate_last_modify(professorq.getDate_last_modify());
                 }
             }.execute();
 

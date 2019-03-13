@@ -53,7 +53,7 @@ public class SpinnerAdapter extends ArrayAdapter<User> {
         return users.get(position);
     }
 
-    public int getPosititon(int id) {
+    public int getPosItem(int id) {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getId() == id) {
                 return i;
