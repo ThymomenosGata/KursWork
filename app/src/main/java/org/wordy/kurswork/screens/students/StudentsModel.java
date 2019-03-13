@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
+import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.Students;
 
 import java.util.List;
@@ -28,6 +29,16 @@ public class StudentsModel implements StudentsContract.Model {
     @Override
     public LiveData<List<Students>> getData() {
         return dataBase.studentsDao().getAll();
+    }
+
+    @Override
+    public Boolean updateProfessor(Students students) {
+        if (getInfo.updateStudents(students)) {
+            dataBase.studentsDao().insert(students);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

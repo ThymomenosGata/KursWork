@@ -2,6 +2,7 @@ package org.wordy.kurswork.screens.students;
 
 import android.arch.lifecycle.LiveData;
 
+import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.Students;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public interface StudentsContract {
         List<Students> getmCurrentStudents();
 
         LiveData<List<Students>> getData();
+
+        Boolean updateProfessor(Students students);
     }
 
     interface Presenter {

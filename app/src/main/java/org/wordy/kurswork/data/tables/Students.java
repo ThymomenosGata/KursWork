@@ -26,7 +26,8 @@ public class Students {
     }
 
     @Ignore
-    public Students(String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
+    public Students(int id, String surname, String name, String middlename, int groupID, int avg_score, String date_last_modify, int userID) {
+        this.id = id;
         this.surname = surname;
         this.name = name;
         this.middlename = middlename;

@@ -8,6 +8,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.Students;
 
 import java.util.List;
@@ -25,4 +26,7 @@ public interface StudentsDao {
 
     @Query("Select * from students")
     LiveData<List<Students>> getAll();
+
+    @Query("Select * from students where id = :id")
+    Students getStudentById(int id);
 }

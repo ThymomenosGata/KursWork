@@ -55,6 +55,28 @@ public class GetInfo {
         }
     }
 
+    public Students getStudentByName(String name) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from students where name = \'" + name + "\'\"}").body().string());
+            JSONObject json = jsonArray.getJSONObject(0);
+            return Students.fromJson(json);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Students delStudentbyId(int id) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from students where id = " + id + "\"}").body().string());
+            JSONObject json = jsonArray.getJSONObject(0);
+            return Students.fromJson(json);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public User delUserById(int id) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from user where id = " + id + "\"}").body().string());
@@ -206,6 +228,19 @@ public class GetInfo {
                     + professor.getName() + "\', middlename = \'" + professor.getMiddlename() + "\', position = \'"
                     + professor.getPosition() + "\',experience = " + professor.getExperience() + ",user = " + professor.getUserID()
                     + ", date_last_modify = \'" + professor.getDate_last_modify() + "\' where id = " + professor.getId() + "\"}").body().string();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateStudents(Students students) {
+        try {
+            mPortal.post("{\"query\" : \"update students set surname = \'"+ students.getSurname() + "\', name = \'"
+                    + students.getName() + "\', middlename = \'" + students.getMiddlename() + "\', `group` = "
+                    + students.getGroupID() + ",avg_score = " + students.getAvg_score() + ", date_last_modify = \'"
+                    + students.getDate_last_modify() + "\',user = " + students.getUserID() +  "where id = " + students.getId() + "\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

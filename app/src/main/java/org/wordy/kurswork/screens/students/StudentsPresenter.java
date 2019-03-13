@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
+import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.Students;
 
 import java.util.List;
@@ -46,5 +47,22 @@ public class StudentsPresenter implements StudentsContract.Presenter {
     @Override
     public LiveData<List<Students>> getStudents() {
         return model.getData();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void update(Students students) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.updateProfessor(students);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
     }
 }

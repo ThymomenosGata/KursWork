@@ -56,7 +56,7 @@ public class PostInfo {
 
     public boolean insertStudents(Students students) {
         try {
-            mPortal.post("{\"query\" : \"insert into students(surname, name middlename, group, avg_score, date_last_modify, user) values(\'"
+            mPortal.post("{\"query\" : \"insert into students(surname, name, middlename, `group`, avg_score, date_last_modify, user) values(\'"
                     + students.getSurname() + "\',\'" + students.getName() + "\',\'" + students.getMiddlename() + "\'," + students.getGroupID()
                     + "," + students.getAvg_score() + ",\'" + students.getDate_last_modify() + "\'," + students.getUserID() + ")\"}").body().string();
             return true;
