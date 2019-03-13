@@ -99,6 +99,17 @@ public class GetInfo {
         }
     }
 
+    public News delNewsById(int id) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from news where id = " + id + "\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return News.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Group delProfessorById(int id) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from professor where id = " + id + "\"}").body().string());
@@ -115,6 +126,17 @@ public class GetInfo {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from `group` where name = \'" + name + "\'\"}").body().string());
             JSONObject jsonObject = jsonArray.getJSONObject(0);
             return Group.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public News getNewsByName(String title) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from news where title = \'" + title + "\'\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return News.fromJson(jsonObject);
         } catch (IOException | JSONException e) {
             e.printStackTrace();
             return null;
@@ -241,6 +263,19 @@ public class GetInfo {
                     + students.getName() + "\', middlename = \'" + students.getMiddlename() + "\', `group` = "
                     + students.getGroupID() + ",avg_score = " + students.getAvg_score() + ", date_last_modify = \'"
                     + students.getDate_last_modify() + "\',user = " + students.getUserID() +  "where id = " + students.getId() + "\"}").body().string();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateNews(News news) {
+        try {
+            mPortal.post("{\"query\" : \"update news set title = \'"+ news.getTitle() + "\', small_sedcription = \'"
+                    + news.getSmall_sedcription() + "\', full_description = \'" + news.getFull_description()
+                    + "\',date_last_modify = \'" + news.getDate_last_modify()+ "\', is_published = "
+                    + news.getIs_published() + ",author = " + news.getAuthor() + "\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

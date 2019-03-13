@@ -32,8 +32,8 @@ public class PostInfo {
     public boolean insertNews(News news) {
         try {
             mPortal.post("{\"query\" : \"insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)"
-                    + "values(\'"+ news.getTitle() + "\',\'" + news.getSmall_sedcription() + "\',\'" + news.getFull_description() + "\',\'" + news.getDate_publish()
-                    + news.getDate_last_modify() + "\',\'" + news.getIs_published() + "," + news.getAuthor() +")\"}").body().string();
+                    + "values(\'" + news.getTitle() + "\',\'" + news.getSmall_sedcription() + "\',\'" + news.getFull_description() + "\',\'" + news.getDate_publish()
+                    + "\', \'" + news.getDate_last_modify() + "\'," + news.getIs_published() + "," + news.getAuthor() + ")\"}").body().string();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

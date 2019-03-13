@@ -22,6 +22,8 @@ public interface NewsContract {
         List<News> getmCurrentNews();
 
         LiveData<List<News>> getData();
+
+        Boolean updateUsers(News news);
     }
 
     interface Presenter {

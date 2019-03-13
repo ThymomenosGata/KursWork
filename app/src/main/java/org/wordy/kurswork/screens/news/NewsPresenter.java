@@ -47,4 +47,21 @@ public class NewsPresenter implements NewsContract.Presenter {
     public LiveData<List<News>> getNews() {
         return model.getData();
     }
+
+    @SuppressLint("StaticFieldLeak")
+    public void update(News news) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.updateUsers(news);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
+    }
 }

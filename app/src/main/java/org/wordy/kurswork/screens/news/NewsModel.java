@@ -31,6 +31,16 @@ public class NewsModel implements NewsContract.Model {
     }
 
     @Override
+    public Boolean updateUsers(News news) {
+        if (getInfo.updateNews(news)) {
+            dataBase.newsDao().insert(news);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void setmCurrentNews(List<News> mCurrentNews) {
         NewsModel.mCurrentNews = mCurrentNews;
     }
