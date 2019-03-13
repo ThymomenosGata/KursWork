@@ -44,6 +44,17 @@ public class GetInfo {
         }
     }
 
+    public User delUserById(int id) {
+        try {
+            JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"delete from user where id = " + id + "\"}").body().string());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            return User.fromJson(jsonObject);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Group getGroupByName(String name) {
         try {
             JSONArray jsonArray = new JSONArray(mPortal.post("{\"query\":\"select * from `group` where name = \'" + name + "\'\"}").body().string());
@@ -52,6 +63,31 @@ public class GetInfo {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean updateUser(User user) {
+        try {
+            mPortal.post("{\"query\":\"update user set login = \'"
+                    + user.getLogin() + "\', password = \'" + user.getPassword() + "\', is_blocked ="
+                    + user.getIs_blocked() + ",date_last_modify =\'" + user.getDate_last_modify()
+                    + "\' where id = " + user.getId() + "\"}").body().string();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateGroup(Group group) {
+        try {
+            mPortal.post("{\"query\":\"update `group` set name = \'"
+                    + group.getName() + "\', count = " + group.getCount() + ", faculty =\'" + group.getFaculty()
+                    + "\', date_last_modify\'" + group.getDate_last_modify() + "\'\"}").body().string();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

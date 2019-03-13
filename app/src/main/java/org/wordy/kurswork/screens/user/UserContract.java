@@ -17,13 +17,13 @@ public interface UserContract {
     interface Model {
         Boolean getUsersFromDB();
 
-        Boolean getUsers();
-
         void setmCurrentUsers(List<User> mCurrentUsers);
 
         List<User> getmCurrentUsers();
 
         LiveData<List<User>> getData();
+
+        Boolean updateUsers(User user);
     }
 
     interface Presenter {

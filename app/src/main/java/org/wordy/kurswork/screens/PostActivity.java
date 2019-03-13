@@ -2,10 +2,10 @@ package org.wordy.kurswork.screens;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.screens.post_group.PostGroupFragment;
@@ -28,7 +28,7 @@ public class PostActivity extends AppCompatActivity {
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
-        if(mSettings.contains(APP_PREFERENCES_ID)) {
+        if (mSettings.contains(APP_PREFERENCES_ID)) {
             flag = mSettings.getInt(APP_PREFERENCES_ID, 0);
         }
 

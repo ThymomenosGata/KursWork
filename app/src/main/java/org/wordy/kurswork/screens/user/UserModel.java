@@ -34,19 +34,13 @@ public class UserModel implements UserContract.Model {
     }
 
     @Override
-    public Boolean getUsers() {
-//        try {
-//            JSONArray jsonArray = new JSONArray(mPortal.get("user.php?id=all").body().string());
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                JSONObject json = jsonArray.getJSONObject(i);
-//                dataBase.groupsDao().insert(Group.fromJson(json));
-//            }
-//            return true;
-//        } catch (JSONException | IOException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-        return false;
+    public Boolean updateUsers(User user) {
+        if (getInfo.updateUser(user)) {
+            dataBase.usersDao().insert(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

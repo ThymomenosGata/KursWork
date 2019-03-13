@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.screens.group.GroupFragment;
@@ -28,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final String APP_PREFERENCES = "mysettings";
     private static final String APP_PREFERENCES_ID = "id";
+    private static final String APP_PREFERENCES_UPD = "upd";
     private SharedPreferences mSettings;
     private Editor editor;
 
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_ID, 1);
+        editor.putInt(APP_PREFERENCES_UPD, 0);
         editor.apply();
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton);
@@ -81,22 +82,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.users) {
             loadFragment(UserFragment.newInstance());
             editor.putInt(APP_PREFERENCES_ID, 1);
+            editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
         } else if (id == R.id.students) {
             loadFragment(StudentsFragment.newInstance());
             editor.putInt(APP_PREFERENCES_ID, 2);
+            editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
         } else if (id == R.id.professors) {
             loadFragment(ProfessorFragment.newInstance());
             editor.putInt(APP_PREFERENCES_ID, 3);
+            editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
         } else if (id == R.id.group) {
             loadFragment(GroupFragment.newInstance());
             editor.putInt(APP_PREFERENCES_ID, 4);
+            editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
         } else if (id == R.id.news) {
             loadFragment(NewsFragment.newInstance());
             editor.putInt(APP_PREFERENCES_ID, 5);
+            editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
         }
 

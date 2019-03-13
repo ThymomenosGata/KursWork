@@ -1,6 +1,8 @@
 package org.wordy.kurswork.screens.post_user;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,7 +32,12 @@ public class PostUserFragment extends Fragment {
     private PostInfo postInfo;
     private GetInfo getInfo;
     private DataBase dataBase;
-    public User user;
+
+    private static final String APP_PREFERENCES = "mysettings";
+    private static final String APP_PREFERENCES_UPD = "upd";
+    private SharedPreferences mSettings;
+    private int upd = 0;
+    private User user;
 
     public PostUserFragment() {
     }
@@ -44,45 +51,111 @@ public class PostUserFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post_users, container, false);
+
+        mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
+        if (mSettings.contains(APP_PREFERENCES_UPD)) {
+            upd = mSettings.getInt(APP_PREFERENCES_UPD, 0);
+        }
+
         mLogin = view.findViewById(R.id.login);
         mPassword = view.findViewById(R.id.password);
         mSend = view.findViewById(R.id.send);
+
+        user = new User();
 
         postInfo = new PostInfo();
         getInfo = new GetInfo();
         dataBase = DataBase.getDataBase(getActivity().getApplicationContext());
 
-        mSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (upd == 0) {
+
+            mSend.setOnClickListener(v -> {
                 Date date = new Date();
                 @SuppressLint("SimpleDateFormat")
                 DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                user = new User(0, mLogin.getText().toString(), mPassword.getText().toString(), 0, dateFormatter.format(date));
-                new AsyncTask<Void, Void, Boolean>() {
+                User user = new User(0, mLogin.getText().toString(), mPassword.getText().toString(), 0, dateFormatter.format(date));
+                setData(view, user);
+            });
+        } else {
+            new AsyncTask<Void, Void, User>() {
+                @Override
+                protected User doInBackground(Void... voids) {
+                    return dataBase.usersDao().getUserById(upd);
+                }
 
-                    @Override
-                    protected Boolean doInBackground(Void... voids) {
-                        boolean flag = postInfo.insertUsers(user);
-                        user = getInfo.getUserByLogin(user.getLogin());
-                        dataBase.usersDao().insert(user);
-                        return flag;
-                    }
+                @Override
+                protected void onPostExecute(User userq) {
+                    super.onPostExecute(userq);
+                    mLogin.setText(userq.getLogin());
+                    mPassword.setText(userq.getPassword());
+                    user.setId(userq.getId());
+                    user.setIs_blocked(userq.getIs_blocked());
+                    user.setLogin(userq.getLogin());
+                    user.setPassword(userq.getPassword());
+                }
+            }.execute();
 
-                    @Override
-                    protected void onPostExecute(Boolean aBoolean) {
-                        super.onPostExecute(aBoolean);
-                        if (aBoolean) {
-                            Snackbar.make(view, "отправлено", Snackbar.LENGTH_LONG).show();
-                            getActivity().finish();
-                        } else {
-                            Snackbar.make(view, "не отправлено", Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                }.execute();
-            }
-        });
+            mSend.setOnClickListener(v -> {
+                Date date = new Date();
+                @SuppressLint("SimpleDateFormat")
+                DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                user.setLogin(mLogin.getText().toString());
+                user.setPassword(mPassword.getText().toString());
+                user.setDate_last_modify(dateFormatter.format(date));
+                setUpdData(view, user);
+            });
+        }
 
         return view;
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void setData(View view, User user) {
+        new AsyncTask<User, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(User... users) {
+                boolean flag = postInfo.insertUsers(users[0]);
+                users[0] = getInfo.getUserByLogin(user.getLogin());
+                dataBase.usersDao().insert(user);
+                return flag;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+                if (aBoolean) {
+                    Snackbar.make(view, "отправлено", Snackbar.LENGTH_LONG).show();
+                    getActivity().finish();
+                } else {
+                    Snackbar.make(view, "не отправлено", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        }.execute(user);
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void setUpdData(View view, User user) {
+        new AsyncTask<User, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(User... users) {
+                boolean flag = getInfo.updateUser(users[0]);
+                dataBase.usersDao().insert(user);
+                return flag;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+                if (aBoolean) {
+                    Snackbar.make(view, "отправлено", Snackbar.LENGTH_LONG).show();
+                    getActivity().finish();
+                } else {
+                    Snackbar.make(view, "не отправлено", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        }.execute(user);
     }
 }

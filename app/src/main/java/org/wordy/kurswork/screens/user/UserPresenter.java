@@ -48,5 +48,22 @@ public class UserPresenter implements UserContract.Presenter {
         return model.getData();
     }
 
+    @SuppressLint("StaticFieldLeak")
+    public void update(User user) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return model.updateUsers(user);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
+    }
+
 
 }

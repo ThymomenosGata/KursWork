@@ -31,4 +31,6 @@
     <string name="experience">experience</string>
     <string name="avg_score">avg score</string>
     <string name="send">Отправить</string>
+    <string name="del">Удалить</string>
+    <string name="upd">Обновить</string>
 </resources>
