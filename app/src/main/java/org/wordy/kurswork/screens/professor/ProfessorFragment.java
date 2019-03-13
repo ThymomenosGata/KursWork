@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,7 +68,11 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         model = new ProfessorModel(getActivity().getApplication());
         presenter = new ProfessorPresenter(model, this);
 
-        presenter.getProfessorsFromDb();
+        if(isNetworkAvailable()) {
+            presenter.getProfessorsFromDb();
+        } else {
+            getData();
+        }
 
         registerForContextMenu(listView);
 
@@ -122,6 +128,12 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         editor.putInt(APP_PREFERENCES_UPD, id);
         editor.apply();
         startActivity(intent);
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
     }
 
 }

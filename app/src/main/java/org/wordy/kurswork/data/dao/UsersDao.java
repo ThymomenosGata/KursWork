@@ -30,6 +30,9 @@ public interface UsersDao {
     @Query("Select * from user where id = :id")
     User getUserById(int id);
 
+    @Query("Select * from user where login = :login")
+    User getUserByLogin(String login);
+
     @Query("Delete from user")
     void deleteAll();
 

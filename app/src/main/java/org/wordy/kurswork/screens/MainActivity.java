@@ -5,10 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -18,7 +22,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import org.wordy.kurswork.NetworkChangeReceiver;
+import org.wordy.kurswork.NetworkUtil;
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
@@ -36,7 +44,7 @@ import org.wordy.kurswork.screens.user.UserFragment;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NetworkChangeReceiver.ConnectivityReceiverListener {
 
     private static final String APP_PREFERENCES = "mysettings";
     private static final String APP_PREFERENCES_ID = "id";
@@ -46,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private PostInfo postInfo;
     private GetInfo getInfo;
     private DataBase dataBase;
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        checkConnection();
+
+        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -93,51 +104,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         switch (id) {
             case R.id.action_reload: {
-                new AsyncTask<Void, Void, Boolean>() {
-
-                    @Override
-                    protected Boolean doInBackground(Void... voids) {
-                        dataBase.newsDao().deleteAll();
-                        dataBase.professorDao().deleteAll();
-                        dataBase.studentsDao().deleteAll();
-                        dataBase.groupsDao().deleteAll();
-                        dataBase.usersDao().deleteAll();
-                        List<Group> groups = getInfo.selectGroup();
-                        for (Group group : groups) {
-                            dataBase.groupsDao().insert(group);
-                        }
-                        List<News> news = getInfo.selectNews();
-                        for (News news1 : news) {
-                            dataBase.newsDao().insert(news1);
-                        }
-                        List<Professor> professors = getInfo.selectProfessor();
-                        for (Professor professor : professors) {
-                            dataBase.professorDao().insert(professor);
-                        }
-                        List<Students> students = getInfo.selectStudents();
-                        for (Students student : students) {
-                            dataBase.studentsDao().insert(student);
-                        }
-                        List<User> users = getInfo.selectUsers();
-                        for (User user : users) {
-                            dataBase.usersDao().insert(user);
-                        }
-                        return true;
-                    }
-
-                    @Override
-                    protected void onPostExecute(Boolean aBoolean) {
-                        super.onPostExecute(aBoolean);
-
-                    }
-                }.execute();
+                if (isNetworkAvailable()) {
+                    //Snackbar.make(drawerLayout, "Соединено", Snackbar.LENGTH_LONG).show();
+                    checkConnection();
+                    updateInfo();
+                } else {
+                    checkConnection();
+                    //Snackbar.make(drawerLayout, "Соедиение", Snackbar.LENGTH_LONG).show();
+                }
                 return true;
             }
         }
@@ -150,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -194,4 +173,81 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ft.commit();
     }
 
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void updateInfo() {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                dataBase.newsDao().deleteAll();
+                dataBase.professorDao().deleteAll();
+                dataBase.studentsDao().deleteAll();
+                dataBase.groupsDao().deleteAll();
+                dataBase.usersDao().deleteAll();
+                List<Group> groups = getInfo.selectGroup();
+                for (Group group : groups) {
+                    dataBase.groupsDao().insert(group);
+                }
+                List<News> news = getInfo.selectNews();
+                for (News news1 : news) {
+                    dataBase.newsDao().insert(news1);
+                }
+                List<Professor> professors = getInfo.selectProfessor();
+                for (Professor professor : professors) {
+                    dataBase.professorDao().insert(professor);
+                }
+                List<Students> students = getInfo.selectStudents();
+                for (Students student : students) {
+                    dataBase.studentsDao().insert(student);
+                }
+                List<User> users = getInfo.selectUsers();
+                for (User user : users) {
+                    dataBase.usersDao().insert(user);
+                }
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean aBoolean) {
+                super.onPostExecute(aBoolean);
+
+            }
+        }.execute();
+    }
+
+    private void checkConnection() {
+        boolean isConnected = NetworkChangeReceiver.isConnected();
+        showSnack(isConnected);
+    }
+
+    private void showSnack(boolean isConnected) {
+        String message;
+        int color;
+        if (isConnected) {
+            message = "Good! Connected to Internet";
+            color = Color.WHITE;
+        } else {
+            message = "Sorry! Not connected to internet";
+            color = Color.RED;
+        }
+
+        Snackbar.make(findViewById(R.id.drawer_layout), message, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        NetworkUtil.getInstance().setConnectivityListener(this);
+    }
+
+    @Override
+    public void onNetworkConnectionChanged(boolean isConnected) {
+        showSnack(isConnected);
+    }
 }

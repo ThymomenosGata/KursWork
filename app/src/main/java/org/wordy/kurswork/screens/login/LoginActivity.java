@@ -31,15 +31,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mPassword = findViewById(R.id.password);
         mButtonLogin = findViewById(R.id.log_in);
 
-        model = new LoginModel();
+        model = new LoginModel(getApplication());
         presenter = new LoginPresenter(model, this);
 
-        mButtonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.checkUser(mLogin.getText().toString(), mPassword.getText().toString());
-            }
-        });
+        mButtonLogin.setOnClickListener(v -> presenter.checkUser(mLogin.getText().toString(), mPassword.getText().toString()));
 
     }
 

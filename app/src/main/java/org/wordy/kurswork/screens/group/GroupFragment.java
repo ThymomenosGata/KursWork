@@ -5,6 +5,8 @@ import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -67,7 +69,11 @@ public class GroupFragment extends Fragment implements GroupContract.View {
         model = new GroupModel(getActivity().getApplication());
         presenter = new GroupPresenter(model, this);
 
-        presenter.getGroupsFromDb();
+        if(isNetworkAvailable()) {
+            presenter.getGroupsFromDb();
+        } else {
+            getData();
+        }
 
         registerForContextMenu(listView);
 
@@ -82,12 +88,7 @@ public class GroupFragment extends Fragment implements GroupContract.View {
 
     @Override
     public void getData() {
-        presenter.getGroups().observe(this, new Observer<List<Group>>() {
-            @Override
-            public void onChanged(@Nullable List<Group> groups) {
-                presenter.setGroups(groups);
-            }
-        });
+        presenter.getGroups().observe(this, groups -> presenter.setGroups(groups));
     }
 
     @Override
@@ -128,5 +129,11 @@ public class GroupFragment extends Fragment implements GroupContract.View {
         editor.putInt(APP_PREFERENCES_UPD, id);
         editor.apply();
         startActivity(intent);
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
     }
 }

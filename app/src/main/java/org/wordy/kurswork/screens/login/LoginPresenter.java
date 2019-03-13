@@ -3,6 +3,8 @@ package org.wordy.kurswork.screens.login;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
+import org.wordy.kurswork.data.tables.User;
+
 public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginModel model;
@@ -35,7 +37,23 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }
             }.execute();
         } else {
-            view.showDialog("Нет подключения к сети");
+            new AsyncTask<Void, Void, User>() {
+
+                @Override
+                protected User doInBackground(Void... voids) {
+                    return model.getUserLocal(login);
+                }
+
+                @Override
+                protected void onPostExecute(User user) {
+                    super.onPostExecute(user);
+                    if (!password.equals(user.getPassword())) {
+                        view.showDialog("Неверный логин или пароль");
+                    } else {
+                        view.navigateToMainActivity();
+                    }
+                }
+            }.execute();
         }
 
     }

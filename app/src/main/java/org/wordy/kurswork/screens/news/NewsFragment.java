@@ -5,6 +5,8 @@ import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -67,7 +69,11 @@ public class NewsFragment extends Fragment implements NewsContract.View {
         model = new NewsModel(getActivity().getApplication());
         presenter = new NewsPresenter(model, this);
 
-        presenter.getNewsFromDb();
+        if(isNetworkAvailable()) {
+            presenter.getNewsFromDb();
+        } else {
+            getData();
+        }
 
         registerForContextMenu(listView);
 
@@ -125,6 +131,10 @@ public class NewsFragment extends Fragment implements NewsContract.View {
         startActivity(intent);
     }
 
-
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
 
 }

@@ -4,24 +4,44 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
+import org.wordy.kurswork.screens.MainActivity;
+
 public class NetworkChangeReceiver extends BroadcastReceiver {
+
+    public static ConnectivityReceiverListener connectivityReceiverListener;
+
+    public NetworkChangeReceiver() {
+        super();
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        final ConnectivityManager connMgr = (ConnectivityManager) context
+        ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null
+                && activeNetwork.isConnectedOrConnecting();
 
-        final android.net.NetworkInfo wifi = connMgr
-                .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-
-        final android.net.NetworkInfo mobile = connMgr
-                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-
-        if (wifi.isAvailable() || mobile.isAvailable()) {
-            // Do something
-
-            Log.d("Network Available ", "Flag No 1");
+        if (connectivityReceiverListener != null) {
+            connectivityReceiverListener.onNetworkConnectionChanged(isConnected);
         }
     }
+
+    public static boolean isConnected() {
+        ConnectivityManager
+                cm = (ConnectivityManager) NetworkUtil.getInstance().getApplicationContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null
+                && activeNetwork.isConnected();
+    }
+
+    public interface ConnectivityReceiverListener {
+        void onNetworkConnectionChanged(boolean isConnected);
+    }
+
+
 }

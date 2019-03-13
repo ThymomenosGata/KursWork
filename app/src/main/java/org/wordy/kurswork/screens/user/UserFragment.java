@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,7 +68,11 @@ public class UserFragment extends Fragment implements UserContract.View {
         model = new UserModel(getActivity().getApplication());
         presenter = new UserPresenter(model, this);
 
-        presenter.getUsersFromDb();
+        if(isNetworkAvailable()) {
+            presenter.getUsersFromDb();
+        } else {
+            getData();
+        }
 
         registerForContextMenu(listView);
 
@@ -122,6 +128,12 @@ public class UserFragment extends Fragment implements UserContract.View {
         editor.putInt(APP_PREFERENCES_UPD, id);
         editor.apply();
         startActivity(intent);
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
     }
 
 }

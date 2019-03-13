@@ -5,6 +5,8 @@ import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -69,7 +71,11 @@ public class StudentsFragment extends Fragment implements StudentsContract.View 
         model = new StudentsModel(getActivity().getApplication());
         presenter = new StudentsPresenter(model, this);
 
-        presenter.getStudentsFromDb();
+        if(isNetworkAvailable()) {
+            presenter.getStudentsFromDb();
+        } else {
+            getData();
+        }
 
         registerForContextMenu(listView);
 
@@ -126,4 +132,11 @@ public class StudentsFragment extends Fragment implements StudentsContract.View 
         editor.apply();
         startActivity(intent);
     }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
 }
