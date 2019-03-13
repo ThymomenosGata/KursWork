@@ -30,4 +30,7 @@ public interface UsersDao {
     @Query("Select * from user where id = :id")
     User getUserById(int id);
 
+    @Query("Delete from user")
+    void deleteAll();
+
 }

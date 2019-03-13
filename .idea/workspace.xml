@@ -15,17 +15,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ada91532-9af4-4fcd-a159-0b9a02a96a97" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/SpinnerAdapterProfessors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/tables/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/tables/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java" afterDir="false" />
-    </list>
     <list id="7ebe0539-63bf-410e-be22-8db70bae065d" name="New changelist" comment="" />
+    <list default="true" id="ada91532-9af4-4fcd-a159-0b9a02a96a97" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +38,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostNewsFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostInfo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostNewsFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+            <state relative-caret-position="169">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="274" selection-start-line="274" selection-end-line="274" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,8 +77,20 @@
       <file leaf-file-name="PostProfessorFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-173">
-              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state relative-caret-position="381">
+              <caret line="129" column="102" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="102" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostStudentsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="154" selection-start-line="154" selection-end-line="154" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2346,7 +2373,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/PostActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_news.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_users.xml" />
@@ -2387,16 +2413,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/students/StudentsPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/students/StudentsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_post_students.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/news/NewsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/tables/News.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/SpinnerAdapterProfessors.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java" />
       </list>
     </option>
   </component>
@@ -2427,6 +2454,29 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="kurswork" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="rests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursWork" type="1abcf292:AndroidViewProjectNode" />
@@ -2509,6 +2559,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.wordy.kurswork.screens.post_news" />
       <recent name="org.wordy.kurswork.screens.post_students" />
     </key>
   </component>
@@ -2752,7 +2803,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="12" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2764,12 +2814,12 @@
       <window_info anchor="right" id="Preview" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3260606" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32848486" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28363636" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28363636" />
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.32848486" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1795422" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1795422" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32630098" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -2933,18 +2983,6 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_user/PostUserFragment.java</url>
           <line>104</line>
           <properties />
@@ -2975,23 +3013,53 @@
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java</url>
-          <line>58</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java</url>
+          <line>274</line>
           <properties />
-          <option name="timeStamp" value="96" />
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java</url>
+          <line>33</line>
           <properties />
-          <option name="timeStamp" value="97" />
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="98" />
+      <option name="time" value="100" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)&quot;                     + &quot;values(\'&quot;+ news.getTitle() + &quot;\',\'&quot; + news.getSmall_sedcription() + &quot;\',\'&quot; + news.getFull_description() + &quot;\',\'&quot; + news.getDate_publish() + &quot;\', \'&quot;  + news.getDate_last_modify() + &quot;\',&quot; + news.getIs_published() + &quot;,&quot; + news.getAuthor() +&quot;)\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)&quot;                     + &quot;values(\'&quot;+ news.getTitle() + &quot;\',\'&quot; + news.getSmall_sedcription() + &quot;\',\'&quot; + news.getFull_description() + &quot;\',\'&quot; + news.getDate_publish()  + news.getDate_last_modify() + &quot;\',&quot; + news.getIs_published() + &quot;,&quot; + news.getAuthor() +&quot;)\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)&quot;                     + &quot;values(\'&quot;+ news.getTitle() + &quot;\',\'&quot; + news.getSmall_sedcription() + &quot;\',\'&quot; + news.getFull_description() + &quot;\',\'&quot; + news.getDate_publish() + news.getDate_last_modify() + &quot;\',&quot; + news.getIs_published() + &quot;,&quot; + news.getAuthor() +&quot;)\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into news(title, small_sedcription, full_description, date_published, date_last_modify, is_published, author)&quot;                     + &quot;values(\'&quot;+ news.getTitle() + &quot;\',\'&quot; + news.getSmall_sedcription() + &quot;\',\'&quot; + news.getFull_description() + &quot;\',\'&quot; + news.getDate_publish()                     + news.getDate_last_modify() + &quot;\',\'&quot; + news.getIs_published() + &quot;,&quot; + news.getAuthor() +&quot;)\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;update news set title = \'&quot;+ news.getTitle() + &quot;\', small_sedcription = \'&quot;                     + news.getSmall_sedcription() + &quot;\', full_description = \'&quot; + news.getFull_description()                     + &quot;\',date_last_modify = \'&quot; + news.getDate_last_modify()+ &quot;\', is_published = &quot;                     + news.getIs_published() + &quot;,author = &quot; + news.getAuthor() + &quot;\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;update news set title = \'&quot;+ news.getTitle() + &quot;\', small_sedcription = \'&quot;                     + news.getSmall_sedcription() + &quot;\', full_description = \'&quot; + news.getFull_description()                     + &quot;\',date_last_modify = &quot; + news.getDate_last_modify()+ &quot;\', is_published = &quot;                     + news.getIs_published() + &quot;,author = &quot; + news.getAuthor() + &quot;\&quot;}&quot;).body().string()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into students(surname, name, middlename, `group`, avg_score, date_last_modify, user) values(\'Вова\',\'Вова\',\'Вова\',4, 200, \'2019-03-05 22:21:43\',1)\&quot;}&quot;).body().string()</expression-string>
         <language-id>JAVA</language-id>
@@ -3007,51 +3075,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot;:\&quot;select password from user where login = \'&quot; + login + &quot;\'\&quot;}&quot;).body().string()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot;:\&quot;select password from user where login = \'&quot; + login + &quot;\'\&quot;}&quot;).body.string()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot;:\&quot;select password from user where login = \'&quot; + login + &quot;\'\&quot;}&quot;</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into students(surname, name middlename, group, avg_score, date_last_modify, user) values(\'Вова\',\'Вова\',\'Вова\',4, 200, \'2019-03-05 22:21:43\',1)\&quot;}&quot;).body().string()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;insert into students(surname, name, middlename, group, avg_score, date_last_modify, user) values(\'&quot;
-                    + students.getSurname() + &quot;\',\'&quot; + students.getName() + &quot;\',\'&quot; + students.getMiddlename() + &quot;\',&quot; + students.getGroupID()
-                    + &quot;,&quot; + students.getAvg_score() + &quot;,\'&quot; + students.getDate_last_modify() + &quot;\',&quot; + students.getUserID() + &quot;)\&quot;}&quot;).body().string()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mPortal.post(&quot;{\&quot;query\&quot; : \&quot;select * from user\&quot;}&quot;).body().string()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/context_menu.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
@@ -3196,13 +3222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="39" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/StudentsDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -3314,16 +3333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="118" column="77" selection-start-line="118" selection-start-column="77" selection-end-line="118" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_post_students.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3331,26 +3340,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2317">
-          <caret line="277" column="81" selection-start-line="277" selection-start-column="81" selection-end-line="277" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="33" column="156" selection-start-line="33" selection-start-column="150" selection-end-line="33" selection-end-column="156" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3459,10 +3448,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/ProfessorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/dao/NewsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_professor/PostProfessorFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        <state relative-caret-position="381">
+          <caret line="129" column="102" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_students/PostStudentsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3471,8 +3484,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/screens/post_news/PostNewsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+        <state relative-caret-position="169">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/GetInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="274" selection-start-line="274" selection-end-line="274" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/wordy/kurswork/data/rests/PostInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

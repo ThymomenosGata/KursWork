@@ -30,4 +30,7 @@ public interface ProfessorDao {
     @Query("Select * from professor where id = :id")
     Professor getProfessorById(int id);
 
+    @Query("Delete from professor")
+    void deleteAll();
+
 }

@@ -28,4 +28,7 @@ public interface GroupsDao {
 
     @Query("Select * from `group` where id = :id")
     Group getUserById(int id);
+
+    @Query("Delete from `group`")
+    void deleteAll();
 }

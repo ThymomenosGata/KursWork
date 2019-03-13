@@ -29,4 +29,7 @@ public interface StudentsDao {
 
     @Query("Select * from students where id = :id")
     Students getStudentById(int id);
+
+    @Query("Delete from students")
+    void deleteAll();
 }

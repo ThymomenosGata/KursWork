@@ -28,4 +28,7 @@ public interface NewsDao {
 
     @Query("Select * from news where id = :id")
     News getNewsById(int id);
+
+    @Query("Delete from news")
+    void deleteAll();
 }
