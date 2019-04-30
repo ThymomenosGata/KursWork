@@ -6,6 +6,7 @@ import org.wordy.kurswork.data.PortalRest;
 import org.wordy.kurswork.data.tables.Group;
 import org.wordy.kurswork.data.tables.News;
 import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.data.tables.Result;
 import org.wordy.kurswork.data.tables.Students;
 import org.wordy.kurswork.data.tables.User;
 
@@ -70,4 +71,13 @@ public class PostInfo {
         }
     }
 
+    public Result newUsers(User user) {
+        try {
+            return gson.fromJson(mPortal.post(gson.toJson(user), "newUser").body().string(), Result.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+
