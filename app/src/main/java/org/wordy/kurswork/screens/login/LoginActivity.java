@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import org.wordy.kurswork.R;
 import org.wordy.kurswork.screens.MainActivity;
+import org.wordy.kurswork.screens.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
@@ -20,7 +21,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private LoginPresenter presenter;
 
     private EditText mLogin, mPassword;
-    private Button mButtonLogin;
+    private Button mButtonLogin, mButtonReg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +31,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mLogin = findViewById(R.id.login);
         mPassword = findViewById(R.id.password);
         mButtonLogin = findViewById(R.id.log_in);
+        mButtonReg = findViewById(R.id.registration);
 
         model = new LoginModel(getApplication());
         presenter = new LoginPresenter(model, this);
 
         mButtonLogin.setOnClickListener(v -> presenter.checkUser(mLogin.getText().toString(), mPassword.getText().toString()));
-
+        mButtonReg.setOnClickListener(v -> presenter.navigateToRegistration());
     }
 
     @Override
@@ -51,6 +53,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void navigateToMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void navigateToRegistrationActivity() {
+        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
         startActivity(intent);
         finish();
     }

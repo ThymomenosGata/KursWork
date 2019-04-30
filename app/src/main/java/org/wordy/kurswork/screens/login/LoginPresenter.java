@@ -60,7 +60,11 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }
             }.execute();
         }
+    }
 
+    @Override
+    public void navigateToRegistration() {
+        view.navigateToRegistrationActivity();
     }
 
 }

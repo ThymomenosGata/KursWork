@@ -8,6 +8,7 @@ public interface LoginContract {
         void showDialog(String message);
         void navigateToMainActivity();
         boolean isOnline();
+        void navigateToRegistrationActivity();
     }
 
     interface Model {
@@ -16,6 +17,7 @@ public interface LoginContract {
 
     interface Presenter {
         void checkUser(String login, String password);
+        void navigateToRegistration();
     }
 
 }
