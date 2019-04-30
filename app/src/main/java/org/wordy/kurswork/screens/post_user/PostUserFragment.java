@@ -19,6 +19,8 @@ import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.rests.PostInfo;
+import org.wordy.kurswork.data.rests.UpdateInfo;
+import org.wordy.kurswork.data.tables.Result;
 import org.wordy.kurswork.data.tables.User;
 
 import java.text.DateFormat;
@@ -31,6 +33,7 @@ public class PostUserFragment extends Fragment {
     private Button mSend;
     private PostInfo postInfo;
     private GetInfo getInfo;
+    private UpdateInfo updateInfo;
     private DataBase dataBase;
 
     private static final String APP_PREFERENCES = "mysettings";
@@ -66,6 +69,7 @@ public class PostUserFragment extends Fragment {
 
         postInfo = new PostInfo();
         getInfo = new GetInfo();
+        updateInfo = new UpdateInfo();
         dataBase = DataBase.getDataBase(getActivity().getApplicationContext());
 
         if (upd == 0) {
@@ -141,9 +145,11 @@ public class PostUserFragment extends Fragment {
 
             @Override
             protected Boolean doInBackground(User... users) {
-                boolean flag = getInfo.updateUser(users[0]);
-                dataBase.usersDao().insert(user);
-                return flag;
+                Result flag = updateInfo.updateUser(users[0]);
+                if (flag.getMessage().equals("successful")) {
+                    dataBase.usersDao().insert(user);
+                }
+                return flag.getMessage().equals("successful");
             }
 
             @Override

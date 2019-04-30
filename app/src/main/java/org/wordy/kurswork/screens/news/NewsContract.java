@@ -3,6 +3,7 @@ package org.wordy.kurswork.screens.news;
 import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.tables.News;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -12,6 +13,10 @@ public interface NewsContract {
         void setDataList(List<News> Groups);
 
         void getData();
+
+        void navigateToUpdate(int id);
+
+        void showDialog(String message);
     }
 
     interface Model {
@@ -23,7 +28,9 @@ public interface NewsContract {
 
         LiveData<List<News>> getData();
 
-        Boolean updateUsers(News news);
+        void deleteNewsInDb(News news);
+
+        Result delNews(int id);
     }
 
     interface Presenter {

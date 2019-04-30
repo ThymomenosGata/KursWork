@@ -20,7 +20,9 @@ import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.rests.PostInfo;
+import org.wordy.kurswork.data.rests.UpdateInfo;
 import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,6 +37,7 @@ public class PostProfessorFragment extends Fragment {
 
     private PostInfo postInfo;
     private GetInfo getInfo;
+    private UpdateInfo updateInfo;
     private DataBase dataBase;
 
     private static final String APP_PREFERENCES = "mysettings";
@@ -75,6 +78,7 @@ public class PostProfessorFragment extends Fragment {
 
         postInfo = new PostInfo();
         getInfo = new GetInfo();
+        updateInfo = new UpdateInfo();
         dataBase = DataBase.getDataBase(getActivity().getApplicationContext());
 
         dataBase.usersDao().getAll().observe(this, users -> {
@@ -168,9 +172,11 @@ public class PostProfessorFragment extends Fragment {
 
             @Override
             protected Boolean doInBackground(Professor... professors) {
-                boolean flag = getInfo.updateProfessor(professors[0]);
-                dataBase.professorDao().insert(professor);
-                return flag;
+                Result flag = updateInfo.updateProfessor(professors[0]);
+                if (flag.getMessage().equals("successful")) {
+                    dataBase.professorDao().insert(professor);
+                }
+                return flag.getMessage().equals("successful");
             }
 
             @Override

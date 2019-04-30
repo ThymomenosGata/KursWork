@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import org.wordy.kurswork.data.tables.News;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -50,17 +51,28 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     @SuppressLint("StaticFieldLeak")
     public void update(News news) {
-        new AsyncTask<Void, Void, Boolean>() {
+        view.navigateToUpdate(news.getId());
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void delete(News news) {
+        new AsyncTask<Void, Void, Result>() {
 
             @Override
-            protected Boolean doInBackground(Void... voids) {
-                return model.updateUsers(news);
+            protected Result doInBackground(Void... voids) {
+                Result result = model.delNews(news.getId());
+                if (result.getMessage().equals("successful")) {
+                    model.deleteNewsInDb(news);
+                }
+                return result;
             }
 
             @Override
-            protected void onPostExecute(Boolean aBoolean) {
-                super.onPostExecute(aBoolean);
-
+            protected void onPostExecute(Result result) {
+                super.onPostExecute(result);
+                if (!result.getMessage().equals("successful")) {
+                    view.showDialog(result.getMessage());
+                }
             }
         }.execute();
     }

@@ -3,6 +3,7 @@ package org.wordy.kurswork.screens.group;
 import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.tables.Group;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -13,6 +14,12 @@ public interface GroupContract {
         void setDataList(List<Group> Groups);
 
         void getData();
+
+        void showDialog(String message);
+
+        boolean isNetworkAvailable();
+
+        void navigateToUpdate(int id);
 
     }
 
@@ -25,7 +32,9 @@ public interface GroupContract {
 
         LiveData<List<Group>> getData();
 
-        Boolean updateGroups(Group group);
+        Result delGroup(int id);
+
+        void deleteGroupInDb(Group group);
     }
 
     interface Presenter {

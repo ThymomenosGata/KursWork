@@ -3,6 +3,7 @@ package org.wordy.kurswork.screens.professor;
 import android.arch.lifecycle.LiveData;
 
 import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -12,6 +13,10 @@ public interface ProfessorContract {
         void setDataList(List<Professor> professors);
 
         void getData();
+
+        void showDialog(String message);
+
+        void navigateToUpdate(int id);
     }
 
     interface Model {
@@ -23,7 +28,9 @@ public interface ProfessorContract {
 
         LiveData<List<Professor>> getData();
 
-        Boolean updateProfessor(Professor professor);
+        Result delProfessor(int id);
+
+        void deleteProfessorInDb(Professor professor);
     }
 
     interface Presenter {

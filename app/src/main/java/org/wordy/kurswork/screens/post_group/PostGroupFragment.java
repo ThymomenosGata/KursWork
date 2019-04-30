@@ -19,7 +19,9 @@ import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.rests.PostInfo;
+import org.wordy.kurswork.data.rests.UpdateInfo;
 import org.wordy.kurswork.data.tables.Group;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,6 +34,7 @@ public class PostGroupFragment extends Fragment {
     private Button mSend;
     private PostInfo postInfo;
     private GetInfo getInfo;
+    private UpdateInfo updateInfo;
     private DataBase dataBase;
 
     private static final String APP_PREFERENCES = "mysettings";
@@ -68,6 +71,7 @@ public class PostGroupFragment extends Fragment {
 
         postInfo = new PostInfo();
         getInfo = new GetInfo();
+        updateInfo = new UpdateInfo();
         dataBase = DataBase.getDataBase(getActivity().getApplicationContext());
 
         if (upd == 0) {
@@ -144,11 +148,11 @@ public class PostGroupFragment extends Fragment {
 
             @Override
             protected Boolean doInBackground(Group... groups) {
-                boolean flag = getInfo.updateGroup(groups[0]);
-                if(flag) {
+                Result flag = updateInfo.updateGroup(groups[0]);
+                if(flag.getMessage().equals("successful")) {
                     dataBase.groupsDao().insert(group);
                 }
-                return flag;
+                return flag.getMessage().equals("successful");
             }
 
             @Override

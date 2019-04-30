@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -34,14 +35,11 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
     private ProfessorModel model;
     private ListView listView;
     private ProfessorAdapter adapter;
-    private GetInfo getInfo;
 
     private static final String APP_PREFERENCES = "mysettings";
     private static final String APP_PREFERENCES_UPD = "upd";
     private SharedPreferences mSettings;
-    private int upd = 0;
     private SharedPreferences.Editor editor;
-    private DataBase dataBase;
 
     public ProfessorFragment() {
     }
@@ -56,13 +54,7 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         View view = inflater.inflate(R.layout.fragment_professor, container, false);
 
         mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-
-        if (mSettings.contains(APP_PREFERENCES_UPD)) {
-            upd = mSettings.getInt(APP_PREFERENCES_UPD, 0);
-        }
         editor = mSettings.edit();
-        getInfo = new GetInfo();
-        dataBase = DataBase.getDataBase(getContext());
 
         listView = view.findViewById(R.id.professors_list);
         model = new ProfessorModel(getActivity().getApplication());
@@ -103,19 +95,11 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.delete: {
-                new AsyncTask<Void, Void, Void>() {
-
-                    @Override
-                    protected Void doInBackground(Void... voids) {
-                        getInfo.delProfessorById(adapter.getProfessor(info.position).getId());
-                        dataBase.professorDao().delete(adapter.getProfessor(info.position));
-                        return null;
-                    }
-                }.execute();
+                presenter.delete(adapter.getProfessor(info.position));
                 return true;
             }
             case R.id.update: {
-                navigateToUpdate(adapter.getProfessor(info.position).getId());
+                presenter.update(adapter.getProfessor(info.position));
                 return true;
             }
             default:
@@ -123,6 +107,7 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         }
     }
 
+    @Override
     public void navigateToUpdate(int id) {
         Intent intent = new Intent(getActivity(), PostActivity.class);
         editor.putInt(APP_PREFERENCES_UPD, id);
@@ -134,6 +119,16 @@ public class ProfessorFragment extends Fragment implements ProfessorContract.Vie
         ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();
+    }
+
+    @Override
+    public void showDialog(String message) {
+        new AlertDialog.Builder(getContext())
+                .setTitle(getResources().getString(R.string.warning))
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
 }

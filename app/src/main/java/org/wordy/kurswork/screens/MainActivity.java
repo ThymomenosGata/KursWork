@@ -228,13 +228,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void showSnack(boolean isConnected) {
         String message;
-        int color;
         if (isConnected) {
             message = "Good! Connected to Internet";
-            color = Color.WHITE;
         } else {
             message = "Sorry! Not connected to internet";
-            color = Color.RED;
         }
 
         Snackbar.make(findViewById(R.id.drawer_layout), message, Snackbar.LENGTH_LONG).show();

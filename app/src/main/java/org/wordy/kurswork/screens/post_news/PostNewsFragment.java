@@ -20,8 +20,9 @@ import org.wordy.kurswork.R;
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
 import org.wordy.kurswork.data.rests.PostInfo;
+import org.wordy.kurswork.data.rests.UpdateInfo;
 import org.wordy.kurswork.data.tables.News;
-import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,6 +35,7 @@ public class PostNewsFragment extends Fragment {
     private Button mSend;
     private PostInfo postInfo;
     private GetInfo getInfo;
+    private UpdateInfo updateInfo;
     private DataBase dataBase;
     private SpinnerAdapterProfessors adapterProfessors;
 
@@ -73,6 +75,7 @@ public class PostNewsFragment extends Fragment {
 
         postInfo = new PostInfo();
         getInfo = new GetInfo();
+        updateInfo = new UpdateInfo();
         dataBase = DataBase.getDataBase(getActivity().getApplicationContext());
 
         date = new Date();
@@ -162,9 +165,11 @@ public class PostNewsFragment extends Fragment {
 
             @Override
             protected Boolean doInBackground(News... news1) {
-                boolean flag = getInfo.updateNews(news1[0]);
-                dataBase.newsDao().insert(news);
-                return flag;
+                Result flag = updateInfo.updateNews(news1[0]);
+                if (flag.getMessage().equals("successful")) {
+                    dataBase.newsDao().insert(news);
+                }
+                return flag.getMessage().equals("successful");
             }
 
             @Override

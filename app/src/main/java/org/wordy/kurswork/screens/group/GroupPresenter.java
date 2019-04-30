@@ -5,7 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import org.wordy.kurswork.data.tables.Group;
-import org.wordy.kurswork.data.tables.User;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -51,17 +51,28 @@ public class GroupPresenter implements GroupContract.Presenter {
 
     @SuppressLint("StaticFieldLeak")
     public void update(Group group) {
-        new AsyncTask<Void, Void, Boolean>() {
+        view.navigateToUpdate(group.getId());
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void delete(Group group) {
+        new AsyncTask<Void, Void, Result>() {
 
             @Override
-            protected Boolean doInBackground(Void... voids) {
-                return model.updateGroups(group);
+            protected Result doInBackground(Void... voids) {
+                Result result = model.delGroup(group.getId());
+                if (result.getMessage().equals("successful")) {
+                    model.deleteGroupInDb(group);
+                }
+                return result;
             }
 
             @Override
-            protected void onPostExecute(Boolean aBoolean) {
-                super.onPostExecute(aBoolean);
-
+            protected void onPostExecute(Result result) {
+                super.onPostExecute(result);
+                if (!result.getMessage().equals("successful")) {
+                    view.showDialog(result.getMessage());
+                }
             }
         }.execute();
     }

@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import org.wordy.kurswork.data.tables.Professor;
+import org.wordy.kurswork.data.tables.Result;
 
 import java.util.List;
 
@@ -50,18 +51,30 @@ public class ProfessorPresenter implements ProfessorContract.Presenter {
 
     @SuppressLint("StaticFieldLeak")
     public void update(Professor professor) {
-        new AsyncTask<Void, Void, Boolean>() {
+        view.navigateToUpdate(professor.getId());
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public void delete(Professor professor) {
+        new AsyncTask<Void, Void, Result>() {
 
             @Override
-            protected Boolean doInBackground(Void... voids) {
-                return model.updateProfessor(professor);
+            protected Result doInBackground(Void... voids) {
+                Result result = model.delProfessor(professor.getId());
+                if (result.getMessage().equals("successful")) {
+                    model.deleteProfessorInDb(professor);
+                }
+                return result;
             }
 
             @Override
-            protected void onPostExecute(Boolean aBoolean) {
-                super.onPostExecute(aBoolean);
-
+            protected void onPostExecute(Result result) {
+                super.onPostExecute(result);
+                if (!result.getMessage().equals("successful")) {
+                    view.showDialog(result.getMessage());
+                }
             }
         }.execute();
     }
+
 }
