@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,8 +67,10 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             protected Result doInBackground(User... users) {
                 Result flag = postInfo.newUsers(users[0]);
-                users[0] = getInfo.getUserByLogin(user.getLogin());
-                dataBase.usersDao().insert(users[0]);
+                if (flag.getMessage().equals("successful")) {
+                    users[0] = getInfo.getUserByLogin(user.getLogin());
+                    dataBase.usersDao().insert(users[0]);
+                }
                 return flag;
             }
 
@@ -78,6 +81,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Snackbar.make(view, "отправлено", Snackbar.LENGTH_LONG).show();
                     finish();
                 } else {
+                    Log.i("APP", result.getMessage());
                     Snackbar.make(view, result.getMessage(), Snackbar.LENGTH_LONG).show();
                 }
             }

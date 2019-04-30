@@ -102,7 +102,8 @@ public class PostStudentsFragment extends Fragment {
             button.setOnClickListener(v -> {
                 Students students = new Students(0, mSurname.getText().toString(),
                         mName.getText().toString(), mMiddlename.getText().toString(),
-                        Integer.valueOf(evgScore.getText().toString()), spinnerAdapter.getItem(mSpinner.getSelectedItemPosition()).getId(),
+                        spinnerAdapter.getItem(mSpinner.getSelectedItemPosition()).getId(),
+                        Integer.valueOf(evgScore.getText().toString()),
                         dateFormatter.format(date), adapterGroup.getItem(mSpin.getSelectedItemPosition()).getId());
                 setData(view, students);
             });

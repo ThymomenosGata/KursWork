@@ -33,7 +33,7 @@
         </receiver>
 
         <activity android:name=".screens.PostActivity" />
-        <activity android:name=".screens.RegistrationActivity"></activity>
+        <activity android:name=".screens.RegistrationActivity" />
     </application>
 
 </manifest>

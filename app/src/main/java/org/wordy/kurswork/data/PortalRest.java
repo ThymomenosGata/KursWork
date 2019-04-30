@@ -11,7 +11,7 @@ import okhttp3.Response;
 
 public class PortalRest {
 
-    private final static String BASE_URL = "http://165.22.129.138";
+    private final static String BASE_URL = "http://165.22.129.138:3356";
     private static final MediaType JSON = MediaType.parse("application/json");
     private static OkHttpClient client = new OkHttpClient();
 

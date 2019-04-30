@@ -61,7 +61,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void navigateToRegistrationActivity() {
         Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override
