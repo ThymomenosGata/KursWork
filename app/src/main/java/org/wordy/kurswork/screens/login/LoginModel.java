@@ -4,6 +4,7 @@ import android.app.Application;
 
 import org.wordy.kurswork.data.DataBase;
 import org.wordy.kurswork.data.rests.GetInfo;
+import org.wordy.kurswork.data.tables.Result;
 import org.wordy.kurswork.data.tables.User;
 
 public class LoginModel implements LoginContract.Model {
@@ -17,8 +18,9 @@ public class LoginModel implements LoginContract.Model {
     }
 
     @Override
-    public Boolean getUserFromDB(String login, String password) {
-        return getInfo.getSuccesAuth(login, password);
+    public Result getUserFromDB(String login, String password) {
+        User user = new User(login, password);
+        return getInfo.getSuccesAuth(user);
     }
 
     public User getUserLocal(String login) {

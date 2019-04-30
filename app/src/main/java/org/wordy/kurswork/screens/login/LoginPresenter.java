@@ -3,6 +3,7 @@ package org.wordy.kurswork.screens.login;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
+import org.wordy.kurswork.data.tables.Result;
 import org.wordy.kurswork.data.tables.User;
 
 public class LoginPresenter implements LoginContract.Presenter {
@@ -19,20 +20,20 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void checkUser(final String login, final String password) {
         if (view.isOnline()) {
-            new AsyncTask<Void, Void, Boolean>() {
+            new AsyncTask<Void, Void, Result>() {
 
                 @Override
-                protected Boolean doInBackground(Void... voids) {
+                protected Result doInBackground(Void... voids) {
                     return model.getUserFromDB(login, password);
                 }
 
                 @Override
-                protected void onPostExecute(Boolean aBoolean) {
-                    super.onPostExecute(aBoolean);
-                    if (aBoolean) {
+                protected void onPostExecute(Result result) {
+                    super.onPostExecute(result);
+                    if (result.getMessage().equals("successful")) {
                         view.navigateToMainActivity();
                     } else {
-                        view.showDialog("Неверный логин или пароль");
+                        view.showDialog(result.getMessage());
                     }
                 }
             }.execute();
@@ -47,10 +48,14 @@ public class LoginPresenter implements LoginContract.Presenter {
                 @Override
                 protected void onPostExecute(User user) {
                     super.onPostExecute(user);
-                    if (!password.equals(user.getPassword())) {
-                        view.showDialog("Неверный логин или пароль");
+                    if(user != null) {
+                        if (!password.equals(user.getPassword())) {
+                            view.showDialog("Неверный логин или пароль");
+                        } else {
+                            view.navigateToMainActivity();
+                        }
                     } else {
-                        view.navigateToMainActivity();
+                        view.showDialog("Войдите, когда появится интернет");
                     }
                 }
             }.execute();

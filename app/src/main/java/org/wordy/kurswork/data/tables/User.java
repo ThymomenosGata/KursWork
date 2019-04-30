@@ -36,6 +36,11 @@ public class User {
         this.date_last_modify = date_last_modify;
     }
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

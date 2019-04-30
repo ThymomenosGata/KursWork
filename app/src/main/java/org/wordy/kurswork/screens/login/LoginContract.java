@@ -1,5 +1,7 @@
 package org.wordy.kurswork.screens.login;
 
+import org.wordy.kurswork.data.tables.Result;
+
 public interface LoginContract {
 
     interface View {
@@ -9,7 +11,7 @@ public interface LoginContract {
     }
 
     interface Model {
-        Boolean getUserFromDB(String login, String password);
+        Result getUserFromDB(String login, String password);
     }
 
     interface Presenter {
