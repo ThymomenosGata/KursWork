@@ -37,6 +37,7 @@ import org.wordy.kurswork.data.tables.Professor;
 import org.wordy.kurswork.data.tables.Students;
 import org.wordy.kurswork.data.tables.User;
 import org.wordy.kurswork.screens.group.GroupFragment;
+import org.wordy.kurswork.screens.login.LoginActivity;
 import org.wordy.kurswork.screens.news.NewsFragment;
 import org.wordy.kurswork.screens.professor.ProfessorFragment;
 import org.wordy.kurswork.screens.students.StudentsFragment;
@@ -160,6 +161,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             editor.putInt(APP_PREFERENCES_ID, 5);
             editor.putInt(APP_PREFERENCES_UPD, 0);
             editor.apply();
+        } else if (id == R.id.exit) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
